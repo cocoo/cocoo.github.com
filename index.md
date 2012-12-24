@@ -1,6 +1,6 @@
 ---
 layout: page
-title: cocoo dai's Blog
+title: cocoo's Blog
 tagline: 
 ---
 
