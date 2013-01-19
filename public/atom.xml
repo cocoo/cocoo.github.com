@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Cocoo Blog]]></title>
+  <link href="http://cocoo.github.com/atom.xml" rel="self"/>
+  <link href="http://cocoo.github.com/"/>
+  <updated>2013-01-19T18:02:35+08:00</updated>
+  <id>http://cocoo.github.com/</id>
+  <author>
+    <name><![CDATA[Cocoo.Dai]]></name>
+    <email><![CDATA[cocoo.dai@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Test]]></title>
+    <link href="http://cocoo.github.com/blog/2013/01/18/title/"/>
+    <updated>2013-01-18T21:17:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/01/18/title</id>
+    <content type="html"><![CDATA[<h2>This is My Test in octpress</h2>
+
+<h3>haha1</h3>
+
+<h3>haha2</h3>
+
+<h3>haha3</h3>
+
+<h3>haha4</h3>
+
+<h3>haha5</h3>
+
+<h3>haha6</h3>
+
+<h3>haha7</h3>
+
+<h3>haha8</h3>
+
+<!--more-->
+
+
+<h3>haha9</h3>
+
+<h3>haha10</h3>
+
+<h3>haha11</h3>
+
+<h3>haha12</h3>
+
+<h3>haha13</h3>
+]]></content>
+  </entry>
+  
+</feed>
