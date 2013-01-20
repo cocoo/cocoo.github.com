@@ -4,7 +4,7 @@
   <title><![CDATA[Cocoo Blog]]></title>
   <link href="http://cocoo.github.com/atom.xml" rel="self"/>
   <link href="http://cocoo.github.com/"/>
-  <updated>2013-01-19T22:37:56+08:00</updated>
+  <updated>2013-01-20T22:09:36+08:00</updated>
   <id>http://cocoo.github.com/</id>
   <author>
     <name><![CDATA[cocoo]]></name>
@@ -14,49 +14,42 @@
 
   
   <entry>
+    <title type="html"><![CDATA[学会octopress的思考方式]]></title>
+    <link href="http://cocoo.github.com/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi/"/>
+    <updated>2013-01-20T20:55:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi</id>
+    <content type="html"><![CDATA[<p>新近接触octopress，一直想写自己的博客，我是一名coder。想用coder的方式写博客，所以选择了octopress。选择她，就要学会她的思考方式。</p>
+
+<!-- more-->
+
+
+<p>昨晚刚刚完成了sublime text2 在ubuntu12.04下输入中文法，今晚就迫不及待的想用这个我一直coding的ide写篇博文。
+其实要完成这个很简单，完成下面这个命令即可：</p>
+
+<pre><code>apt-get install fcitx
+</code></pre>
+
+<p>我想学会octopress的思考方式应该从这几点入手：</p>
+
+<blockquote><ol>
+<li>学会用她.</li>
+<li>.</li>
+</ol>
+
+
+<p>Here&#8217;s some example code:</p>
+
+<pre><code>return shell_exec("echo $input | $markdown_script");
+</code></pre></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[linux学习之crontab]]></title>
     <link href="http://cocoo.github.com/blog/2013/01/19/linuxxue-xi-zhi-crontab/"/>
     <updated>2013-01-19T21:35:00+08:00</updated>
     <id>http://cocoo.github.com/blog/2013/01/19/linuxxue-xi-zhi-crontab</id>
     <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Test]]></title>
-    <link href="http://cocoo.github.com/blog/2013/01/18/title/"/>
-    <updated>2013-01-18T21:17:00+08:00</updated>
-    <id>http://cocoo.github.com/blog/2013/01/18/title</id>
-    <content type="html"><![CDATA[<h2>This is My Test in octpress</h2>
-
-<h3>haha1</h3>
-
-<h3>haha2</h3>
-
-<h3>haha3</h3>
-
-<h3>haha4</h3>
-
-<h3>haha5</h3>
-
-<h3>haha6</h3>
-
-<h3>haha7</h3>
-
-<h3>haha8</h3>
-
-<!--more-->
-
-
-<h3>haha9</h3>
-
-<h3>haha10</h3>
-
-<h3>haha11</h3>
-
-<h3>haha12</h3>
-
-<h3>haha13</h3>
 ]]></content>
   </entry>
   
