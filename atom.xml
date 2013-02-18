@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Cocoo Blog]]></title>
+  <link href="http://cocoo.github.com/atom.xml" rel="self"/>
+  <link href="http://cocoo.github.com/"/>
+  <updated>2013-02-13T11:36:12+08:00</updated>
+  <id>http://cocoo.github.com/</id>
+  <author>
+    <name><![CDATA[cocoo]]></name>
+    <email><![CDATA[cocoo.dai@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Backbone学习1]]></title>
+    <link href="http://cocoo.github.com/blog/2013/01/28/backbonexue-xi-1/"/>
+    <updated>2013-01-28T12:50:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/01/28/backbonexue-xi-1</id>
+    <content type="html"><![CDATA[<h2>Backbone 简介</h2>
+
+<p>Backbone 是一个前端 JS 代码 MVC 框架，被著名的 <a href="http://37signals.com/">37signals</a> 用来构建他们的移动客户端。它不可取代 Jquery，不可取代现有的 template 库。而是和这些结合起来构建复杂的 web 前端交互应用。</p>
+
+<p>如果项目涉及大量的 javascript 代码，实现很多复杂的前端交互功能，首先你会想到把数据和展示分离。使用 Jquery 的 selector 和 callback 可以轻松做到这点。但是对于富客户端的WEB应用大量代码的结构化组织非常必要。</p>
+
+<p>Backbone 就提供了 javascript 代码的组织的功能。Backbone 主要包括 models, collections, views 和 events, controller 。</p>
+
+<p>Models 用来创建数据，校验数据，存储数据到服务器端， Collections 包含你创建的 functions ，Views 用来展示数据。</p>
+
+<p>Models 还可以绑定事件。比如用户动作变化触发 models 的 change 事件，所有展示此model 数据的 views 都会接收到 这个 change 事件，进行重绘。</p>
+
+<p>Backbone托管在github上,地址:<a href="https://github.com/documentcloud/backbone">Backbone</a></p>
+
+<h3>例子</h3>
+
+<p>`</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[搭建nginx+mongodb+fastdfs]]></title>
+    <link href="http://cocoo.github.com/blog/2013/01/21/da-jian-nginx-plus-mongodb-plus-fastdfs/"/>
+    <updated>2013-01-21T11:11:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/01/21/da-jian-nginx-plus-mongodb-plus-fastdfs</id>
+    <content type="html"><![CDATA[<h2>1.   nginx</h2>
+
+<p>此次所需插件：</p>
+
+<blockquote><ol>
+<li>nginx-upstream-fair</li>
+<li>nginx_upload_module</li>
+<li>ngx_http_auth_request_module</li>
+<li>fastdfs-nginx-module</li>
+</ol>
+</blockquote>
+
+<!-- more-->
+
+
+<ol>
+<li>nginx-upstream-fair</li>
+</ol>
+
+
+<p>“公平的”Nginx 负载均衡模块，增强了Nginx 提供的round-robin 负载均衡算法，可以跟踪后端服务器的负载来分发请求。</p>
+
+<p>下载：</p>
+
+<pre><code>git clone git://github.com/gnosek/nginx-upstream-fair.git
+</code></pre>
+
+<p>配置范例：</p>
+
+<pre><code>upstream mongrel {
+    fair;
+    server 127.0.0.1:5000;
+    server 127.0.0.1:5001;
+    server 127.0.0.1:5002;
+}
+</code></pre>
+
+<ol>
+<li>nginx_upload_module</li>
+</ol>
+
+
+<p>nginx upload module模块通过nginx服务器来接受用户上传的文件，它自动分析客户端的上传请求，将上传的文件保存到 upload_store 所指向的目录位置。
+然后这些文件信息将被从原始的请求中剔除，重新组装好上传参数后转交到后端由 upload_pass 指定的location去处理，这样后端就可以任意处理上传的文件。
+每一个上传的 file 字段值将可以由upload_set_form_field 指定的值替换。
+上传的文件可以通过$upload_tmp_path 变量访问到。
+上传的文件经过处理以后，由 upload_cleanup 指定的条件控制删除清理。</p>
+
+<p>下载:</p>
+
+<pre><code>git clone git://github.com/vkholodkov/nginx-upload-module.git
+</code></pre>
+
+<ol>
+<li>ngx_http_auth_request_module</li>
+</ol>
+
+
+<p>这个模块可以实现基于服务器内部子请求的返回结果来控制用户鉴权。比如子请求返回4xx则提示说没有权限，如果是2xx则会返回资源给客户端，返回401错误则把子请求的鉴权头透传给客户端。这样通过服务器内部逻辑就可以控制鉴权，省去不少业务逻辑层的脚本代码.</p>
+
+<p>下载:</p>
+
+<pre><code>git clone git://github.com/PiotrSikora/ngx_http_auth_request_module.git
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>location /private/ {
+    auth_request /auth;
+    ...
+}
+
+location = /auth {
+    proxy_pass ...
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length "";
+    proxy_set_header X-Original-URI $request_uri;
+}
+</code></pre>
+
+<ol>
+<li>fastdfs-nginx-module</li>
+</ol>
+
+
+<p>下载:</p>
+
+<pre><code>wget http://fastdfs-nginx-module.googlecode.com/files/fastdfs-nginx-module_v1.14.tar.gz
+tar xzvf fastdfs-nginx-module_v1.14.tar.gz
+</code></pre>
+
+<p>最后是nginx</p>
+
+<pre><code>wget http://nginx.org/download/nginx-1.2.1.tar.gz
+tar xzvf nginx-1.2.1.tar.gz
+cd nginx-1.2.1
+./configure --with-http_ssl_module --with-http_flv_module --with-http_gzip_static_module --with-mail --with-mail_ssl_module --with-poll_module --with-http_stub_status_module --with-http_perl_module --add-module={nginx_plugin_path}/nginx-upstream-fair --add-module={nginx_plugin_path}/nginx-upload-module --add-module={nginx_plugin_path}/ngx_http_auth_request_module --add-module={nginx_plugin_path}/fastdfs-nginx-module/src/
+make &amp;&amp; make install
+</code></pre>
+
+<p>在make的时候会报错,没有fdfs_define.h,那是因为还没有安装fastdfs.先安装fastdfs,回头再来编译nginx</p>
+
+<h2>2.   fastdfs</h2>
+
+<p>FastDFS是一款类Google FS的开源分布式文件系统，它用纯C语言实现，支持Linux、FreeBSD、AIX等UNIX系统。它只能通过专有API对文件进行存取访问，不支持POSIX接口方式，不能mount使用。准确地讲，Google FS以及FastDFS、mogileFS、HDFS、TFS等类Google FS都不是系统级的分布式文件系统，而是应用级的分布式文件存储服务。</p>
+
+<p>依赖libevent:</p>
+
+<pre><code>wget http://cloud.github.com/downloads/libevent/libevent/libevent-1.4.14b-stable.tar.gz
+cd libevent-1.4.14b
+./configure
+make &amp;&amp; make install
+</code></pre>
+
+<p>安装Fastdfs:</p>
+
+<pre><code>wget http://fastdfs.googlecode.com/files/FastDFS_v4.05.tar.gz
+tar xzvf FastDFS_v4.05.tar.gz
+cd FastDFS
+./make &amp;&amp; ./make install
+</code></pre>
+
+<p>配置Fastdfs:</p>
+
+<pre><code>mkidr -p /home/data/fastdfs/db
+mkidr -p /home/data/fastdfs/log
+vi /etc/fdfs/tracker.conf 
+修改base_path=/home/data/fastdfs
+vi /etc/fdfs/storage.conf
+修改base_path=/home/data/fastdfs
+修改tracker_server=192.168.1.100:22122
+</code></pre>
+
+<p>以上配置根据自己的电脑进行配置
+启动:</p>
+
+<pre><code>fdfs_trackerd /etc/fdfs/tracker.conf 
+fdfs_storaged /etc/fdfs/storage.conf
+</code></pre>
+
+<p>监控:</p>
+
+<pre><code>fdfs_monitor /etc/fdfs/client.conf
+</code></pre>
+
+<p>测试:</p>
+
+<pre><code>fdfs_upload_file /etc/fdfs/client.conf test.tx
+返回:group1/M00/00/00/wKgBZFELUiCAMJzqAAAABmpcy6c9964.tx
+fdfs_download_file /etc/fdfs/client.conf group1/M00/00/00/wKgBZFELUiCAMJzqAAAABmpcy6c9964.tx test.tx
+</code></pre>
+
+<p>重新回到之前编译nginx的地方.</p>
+
+<pre><code>./configure --with-http_ssl_module --with-http_flv_module --with-http_gzip_static_module --with-mail --with-mail_ssl_module --with-poll_module --with-http_stub_status_module --with-http_perl_module --add-module={nginx_plugin_path}/nginx-upstream-fair --add-module={nginx_plugin_path}/nginx-upload-module --add-module={nginx_plugin_path}/ngx_http_auth_request_module --add-module={nginx_plugin_path}/fastdfs-nginx-module/src/
+
+make &amp;&amp; make install
+</code></pre>
+
+<p>耐心等待,应该没有什么问题.
+配置nginx.conf</p>
+
+<pre><code>vi /etc/nginx/nginx.conf
+</code></pre>
+
+<p>增加:</p>
+
+<pre><code>location ~ ^/group1/M00/ {
+            root /home/data/fastdfs/data;
+            expires 4d;
+            ngx_fastdfs_module;
+    }
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[学会octopress的思考方式]]></title>
+    <link href="http://cocoo.github.com/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi/"/>
+    <updated>2013-01-20T20:55:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi</id>
+    <content type="html"><![CDATA[<p>新近接触octopress，一直想写自己的博客，我是一名coder。想用coder的方式写博客，所以选择了octopress。选择她，就要学会她的思考方式。</p>
+
+<!-- more-->
+
+
+<p>昨晚刚刚完成了sublime text2 在ubuntu12.04下输入中文法，今晚就迫不及待的想用这个我一直coding的ide写篇博文。
+其实要完成这个很简单，完成下面这个命令即可：</p>
+
+<pre><code>apt-get install fcitx
+</code></pre>
+
+<p>我想学会octopress的思考方式应该从这几点入手：</p>
+
+<blockquote><ol>
+<li>学会用她.</li>
+<li>尝试个性化.</li>
+</ol>
+</blockquote>
+
+<p>1.学会用她</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[linux学习之crontab]]></title>
+    <link href="http://cocoo.github.com/blog/2013/01/19/linuxxue-xi-zhi-crontab/"/>
+    <updated>2013-01-19T21:35:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/01/19/linuxxue-xi-zhi-crontab</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
