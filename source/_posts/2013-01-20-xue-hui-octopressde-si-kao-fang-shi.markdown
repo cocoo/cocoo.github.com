@@ -13,8 +13,6 @@ categories:
 
 我想学会octopress的思考方式应该从这几点入手：
 > 1.   学会用她.
-> 2.   .
->
-> Here's some example code:
->
->     return shell_exec("echo $input | $markdown_script");
+> 2.   尝试个性化.
+
+1.学会用她
