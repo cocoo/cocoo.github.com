@@ -9,10 +9,7 @@
   <meta name="author" content="cocoo">
 
   
-  <meta name="description" content="简介 mxGraph客户端是一个图形组件，并提供和网页集成的接口。。客户端需要一个Web服务器提供所需的文件，也可以在本地文件系统上运行。后台可用于集成到现有存在的服务器所支持的语言中
-与后台配合后， 该组件可完成以下功能： 创建类似visio的图库
-存储加载图库
-创建一个graph对象 &hellip;">
+  <meta name="description" content="mxStylesheet内参数说明 &lt;mxStylesheet as="stylesheet"&gt; &lt;add as="text"&gt; &lt;!-- 指定为text追加样式 --&gt; &lt;add as="shape" value="rectangle"/&gt; &lt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,7 +70,189 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/03/04/mxgraphbi-ji/">Mxgraph笔记1【简介】</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/03/07/mxgraphbi-ji-5/">Mxgraph笔记5【参数说明】</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-07T16:10:00+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>mxStylesheet内参数说明</h3>
+
+<pre><code>&lt;mxStylesheet as="stylesheet"&gt;
+    &lt;add as="text"&gt; &lt;!-- 指定为text追加样式 --&gt;
+        &lt;add as="shape" value="rectangle"/&gt;
+        &lt;add as="perimeter" value="trianglePerimeter"/&gt;
+        &lt;add as="fontSize" value="12"/&gt;
+        &lt;add as="align" value="left"/&gt;
+        &lt;add as="verticalAlign" value="top"/&gt;
+        &lt;add as="shadow" value="0"/&gt;
+        &lt;add as="strokeColor" value="none"/&gt;
+        &lt;add as="fillColor" value="none"/&gt;
+        &lt;add as="gradientColor" value="none"/&gt;
+    &lt;/add&gt;
+&lt;/mxStylesheet&gt;
+</code></pre>
+
+<ul>
+<li>perimeter:连接点类型，可选的由ellipsePerimeter，rectanglePerimeter，rhombusPerimeter，trianglePerimeter</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/07/mxgraphbi-ji2/">Mxgraph笔记2【xml配置】</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-07T13:05:00+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在mxgraph中可以使用mxEditor读取xml格式的配置，通过xml定义构建toolbar，graph，shape等。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/07/mxgraphbi-ji2/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/07/mxgraphbi-ji4/">Mxgraph笔记4【shape】</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-07T12:54:00+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在mxgraph中，要实现一个自定义的图形使非常容易的。只需要：
+*   继承mxShape
+*   覆盖redrawPath方法
+*   注册自定义的图形</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/07/mxgraphbi-ji4/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/05/mxgraphbi-ji3/">Mxgraph笔记3【toolbar】</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-05T13:37:00+08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>用给定的dom元素创建一个toolbar，这个toolbar可能包含icons，buttons和combo boxes</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/05/mxgraphbi-ji3/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/04/mxgraphbi-ji1/">Mxgraph笔记1【简介】</a></h1>
     
     
       <p class="meta">
@@ -115,204 +294,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/blog/2013/03/04/mxgraphbi-ji/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/02/19/rabbitmqhuan-jing-da-jian/">Rabbitmq环境搭建</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-19T10:11:00+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>目录</h2>
-
-<ul>
-<li><a href="#introduction">简介</a></li>
-<li><a href="#install">安装</a>
-
-<ul>
-<li> <a href="#erlang-install">erlang 安装</a></li>
-<li> <a href="#rabbitmq-install">rabbitmq 安装</a></li>
-</ul>
-</li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/02/19/rabbitmqhuan-jing-da-jian/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/28/backbonexue-xi-1/">Backbone学习1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-28T12:50:00+08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Backbone 简介</h2>
-
-<p>Backbone 是一个前端 JS 代码 MVC 框架，被著名的 <a href="http://37signals.com/">37signals</a> 用来构建他们的移动客户端。它不可取代 Jquery，不可取代现有的 template 库。而是和这些结合起来构建复杂的 web 前端交互应用。</p>
-
-<p>如果项目涉及大量的 javascript 代码，实现很多复杂的前端交互功能，首先你会想到把数据和展示分离。使用 Jquery 的 selector 和 callback 可以轻松做到这点。但是对于富客户端的WEB应用大量代码的结构化组织非常必要。</p>
-
-<p>Backbone 就提供了 javascript 代码的组织的功能。Backbone 主要包括 models, collections, views 和 events, controller 。</p>
-
-<p>Models 用来创建数据，校验数据，存储数据到服务器端， Collections 包含你创建的 functions ，Views 用来展示数据。</p>
-
-<p>Models 还可以绑定事件。比如用户动作变化触发 models 的 change 事件，所有展示此model 数据的 views 都会接收到 这个 change 事件，进行重绘。</p>
-
-<p>Backbone托管在github上,地址:<a href="https://github.com/documentcloud/backbone">Backbone</a></p>
-
-<h3>例子</h3>
-
-<p>`</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/21/da-jian-nginx-plus-mongodb-plus-fastdfs/">搭建nginx+mongodb+fastdfs</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-21T11:11:00+08:00" pubdate data-updated="true">Jan 21<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>1.   nginx</h2>
-
-<p>此次所需插件：</p>
-
-<blockquote><ol>
-<li>nginx-upstream-fair</li>
-<li>nginx_upload_module</li>
-<li>ngx_http_auth_request_module</li>
-<li>fastdfs-nginx-module</li>
-</ol>
-</blockquote>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/01/21/da-jian-nginx-plus-mongodb-plus-fastdfs/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi/">学会octopress的思考方式</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-20T20:55:00+08:00" pubdate data-updated="true">Jan 20<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>新近接触octopress，一直想写自己的博客，我是一名coder。想用coder的方式写博客，所以选择了octopress。选择她，就要学会她的思考方式。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2013/03/04/mxgraphbi-ji1/">Read on &rarr;</a>
     </footer>
   
 
@@ -368,23 +350,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/03/04/mxgraphbi-ji/">mxgraph笔记1【简介】</a>
+        <a href="/blog/2013/03/07/mxgraphbi-ji-5/">mxgraph笔记5【参数说明】</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/02/19/rabbitmqhuan-jing-da-jian/">rabbitmq环境搭建</a>
+        <a href="/blog/2013/03/07/mxgraphbi-ji2/">mxgraph笔记2【xml配置】</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/28/backbonexue-xi-1/">Backbone学习1</a>
+        <a href="/blog/2013/03/07/mxgraphbi-ji4/">mxgraph笔记4【shape】</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/21/da-jian-nginx-plus-mongodb-plus-fastdfs/">搭建nginx+mongodb+fastdfs</a>
+        <a href="/blog/2013/03/05/mxgraphbi-ji3/">mxgraph笔记3【toolbar】</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/20/xue-hui-octopressde-si-kao-fang-shi/">学会octopress的思考方式</a>
+        <a href="/blog/2013/03/04/mxgraphbi-ji1/">mxgraph笔记1【简介】</a>
       </li>
     
   </ul>
