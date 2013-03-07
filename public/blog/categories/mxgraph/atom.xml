@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mxgraph | Cocoo Blog]]></title>
+  <link href="http://cocoo.github.com/blog/categories/mxgraph/atom.xml" rel="self"/>
+  <link href="http://cocoo.github.com/"/>
+  <updated>2013-03-07T16:48:37+08:00</updated>
+  <id>http://cocoo.github.com/</id>
+  <author>
+    <name><![CDATA[cocoo]]></name>
+    <email><![CDATA[cocoo.dai@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[mxgraph笔记5【参数说明】]]></title>
+    <link href="http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji-5/"/>
+    <updated>2013-03-07T16:10:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji-5</id>
+    <content type="html"><![CDATA[<h3>mxStylesheet内参数说明</h3>
+
+<pre><code>&lt;mxStylesheet as="stylesheet"&gt;
+    &lt;add as="text"&gt; &lt;!-- 指定为text追加样式 --&gt;
+        &lt;add as="shape" value="rectangle"/&gt;
+        &lt;add as="perimeter" value="trianglePerimeter"/&gt;
+        &lt;add as="fontSize" value="12"/&gt;
+        &lt;add as="align" value="left"/&gt;
+        &lt;add as="verticalAlign" value="top"/&gt;
+        &lt;add as="shadow" value="0"/&gt;
+        &lt;add as="strokeColor" value="none"/&gt;
+        &lt;add as="fillColor" value="none"/&gt;
+        &lt;add as="gradientColor" value="none"/&gt;
+    &lt;/add&gt;
+&lt;/mxStylesheet&gt;
+</code></pre>
+
+<ul>
+<li>perimeter:连接点类型，可选的由ellipsePerimeter，rectanglePerimeter，rhombusPerimeter，trianglePerimeter</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mxgraph笔记2【xml配置】]]></title>
+    <link href="http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji2/"/>
+    <updated>2013-03-07T13:05:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji2</id>
+    <content type="html"><![CDATA[<p>在mxgraph中可以使用mxEditor读取xml格式的配置，通过xml定义构建toolbar，graph，shape等。</p>
+
+<!--more-->
+
+
+<h3>xml文件格式说明：</h3>
+
+<pre><code>&lt;mxEditor defaultGroup="group" defaultEdge="connector"&gt;
+&lt;!-- 
+    The following line is used to dynamically add a configuration hook for various backends.
+    The hook must have an ASP.NET extension because IIS does not handle any other extensions.
+    In the Dotnet and Java server examples, this hook is implemented so that it returns the
+    required configuration for using a backend, namely, the diagrameditor-backend.xml 
+    in the java and dotnet directories, respectively.
+ --&gt;
+    &lt;!-- 引入按键绑定和右键弹出定义 --&gt;
+    &lt;include name="config/editor-commons.xml"/&gt;
+    &lt;!-- 定义onInit --&gt;
+    &lt;add as="onInit"&gt;&lt;![CDATA[
+        function ()
+        {
+            onInit(this);
+        }
+    ]]&gt;&lt;/add&gt;
+    &lt;!-- 页面ui绑定 --&gt;
+    &lt;ui&gt;
+        &lt;add as="graph" element="graph"/&gt;
+        &lt;add as="status" element="status"/&gt;
+        &lt;add as="toolbar" element="toolbar"/&gt;
+    &lt;/ui&gt;
+    &lt;!-- 定义各形状初始化时的值 --&gt;
+    &lt;Array as="templates"&gt;
+        &lt;add as="group"&gt;
+            &lt;Group label="" href=""&gt;
+                &lt;mxCell vertex="1" style="group" connectable="0"/&gt;
+            &lt;/Group&gt;
+        &lt;/add&gt;
+        &lt;add as="connector"&gt;
+            &lt;Connector label="" href=""&gt;
+                &lt;mxCell edge="1"&gt;
+                    &lt;mxGeometry as="geometry" relative="1"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Connector&gt;
+        &lt;/add&gt;
+        &lt;add as="container"&gt;
+            &lt;Container label="Container" href=""&gt;
+                &lt;mxCell vertex="1" style="swimlane" connectable="0"&gt;
+                    &lt;mxGeometry as="geometry" width="200" height="200"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Container&gt;
+        &lt;/add&gt;
+        &lt;add as="rectangle"&gt;
+            &lt;Rect label="Rectangle" href=""&gt;
+                &lt;mxCell vertex="1"&gt; 
+                    &lt;mxGeometry as="geometry" width="80" height="40"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Rect&gt;
+        &lt;/add&gt;
+        &lt;add as="text"&gt;
+            &lt;Text label="Text Here" href=""&gt;
+                &lt;mxCell vertex="1" style="text"&gt;    
+                    &lt;mxGeometry as="geometry" width="80" height="20"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Text&gt;
+        &lt;/add&gt;
+        &lt;add as="image"&gt;
+            &lt;Image label="" href=""&gt;
+                &lt;mxCell vertex="1" style="image"&gt;   
+                    &lt;mxGeometry as="geometry" width="80" height="50"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Image&gt;
+        &lt;/add&gt;
+        &lt;add as="rounded"&gt;
+            &lt;Roundrect label="Rounded" href=""&gt;
+                &lt;mxCell vertex="1" style="rounded"&gt;     
+                    &lt;mxGeometry as="geometry" width="80" height="40"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Roundrect&gt;
+        &lt;/add&gt;
+        &lt;add as="shape"&gt;
+            &lt;Shape label="Shape" href=""&gt;
+                &lt;mxCell vertex="1" style="ellipse"&gt;     
+                    &lt;mxGeometry as="geometry" width="60" height="60"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Shape&gt;
+        &lt;/add&gt;
+        &lt;add as="actor"&gt;
+            &lt;Shape label="Shape" href=""&gt;
+                &lt;mxCell vertex="1" style="actor"&gt;       
+                    &lt;mxGeometry as="geometry" width="40" height="60"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Shape&gt;
+        &lt;/add&gt;
+        &lt;add as="cloud"&gt;
+            &lt;Shape label="Shape" href=""&gt;
+                &lt;mxCell vertex="1" style="cloud"&gt;       
+                    &lt;mxGeometry as="geometry" width="80" height="60"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Shape&gt;
+        &lt;/add&gt;
+        &lt;add as="hline"&gt;
+            &lt;Shape label="" href=""&gt;
+                &lt;mxCell vertex="1" style="ellipse"&gt;     
+                    &lt;mxGeometry as="geometry" width="60" height="10"/&gt;
+                &lt;/mxCell&gt;
+            &lt;/Shape&gt;
+        &lt;/add&gt;
+    &lt;/Array&gt;
+    &lt;mxGraph as="graph" alternateEdgeStyle="verticalConnector" allowLoops="1" dropEnabled="1"&gt;
+        &lt;add as="isAutoSizeCell"&gt;&lt;![CDATA[
+            function(cell)
+            {
+                return mxUtils.isNode(this.model.getValue(cell), 'text');
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;add as="isSwimlane"&gt;&lt;![CDATA[
+            function (cell)
+            {
+                return mxUtils.isNode(this.model.getValue(cell), 'container');
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;add as="getTooltipForCell"&gt;&lt;![CDATA[
+            function(cell)
+            {
+                return '&lt;b&gt;'+cell.getAttribute('label')+
+                        '&lt;/b&gt; ('+cell.getId()+')'+
+                        '&lt;br&gt;Style: '+cell.getStyle()+
+                        '&lt;br&gt;Connections: '+cell.getEdgeCount()+
+                        '&lt;br&gt;Children: '+cell.getChildCount();
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;add as="convertValueToString"&gt;&lt;![CDATA[
+            function(cell)
+            {
+                return cell.getAttribute('label');
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;!-- 各Shape的样式 --&gt;
+        &lt;mxStylesheet as="stylesheet"&gt;
+            &lt;add as="text"&gt;
+                &lt;add as="shape" value="rectangle"/&gt;
+                &lt;add as="perimeter" value="rectanglePerimeter"/&gt;
+                &lt;add as="fontSize" value="12"/&gt;
+                &lt;add as="align" value="left"/&gt;
+                &lt;add as="verticalAlign" value="top"/&gt;
+                &lt;add as="shadow" value="0"/&gt;
+                &lt;add as="strokeColor" value="none"/&gt;
+                &lt;add as="fillColor" value="none"/&gt;
+                &lt;add as="gradientColor" value="none"/&gt;
+            &lt;/add&gt;
+            &lt;add as="defaultVertex" extend="text"&gt;
+                &lt;add as="shape" value="rectangle"/&gt;
+                &lt;add as="fontSize" value="11"/&gt;
+                &lt;add as="align" value="center"/&gt;
+                &lt;add as="verticalAlign" value="middle"/&gt;
+                &lt;add as="shadow" value="1"/&gt;
+                &lt;add as="strokeColor" value="#C3D9FF"/&gt;
+                &lt;add as="fillColor" value="#C3D9FF"/&gt;
+                &lt;add as="gradientColor" value="white"/&gt;
+            &lt;/add&gt;
+            &lt;add as="group"&gt;
+                &lt;add as="shape" value="rectangle"/&gt;
+                &lt;add as="perimeter" value="rectanglePerimeter"/&gt;
+                &lt;add as="fontSize" value="10"/&gt;
+                &lt;add as="align" value="center"/&gt;
+                &lt;add as="verticalAlign" value="middle"/&gt;
+                &lt;add as="strokeColor" value="gray"/&gt;
+                &lt;add as="dashed" value="1"/&gt;
+            &lt;/add&gt;
+            &lt;add as="defaultEdge"&gt;
+                &lt;add as="shape" value="connector"/&gt;
+                &lt;add as="fontSize" value="10"/&gt;
+                &lt;add as="align" value="center"/&gt;
+                &lt;add as="verticalAlign" value="middle"/&gt;
+                &lt;add as="rounded" value="1"/&gt;
+                &lt;add as="labelBackgroundColor" value="white"/&gt;
+                &lt;add as="strokeColor" value="#36393D"/&gt;
+                &lt;add as="strokeWidth" value="1"/&gt;
+                &lt;add as="edgeStyle" value="elbowEdgeStyle"/&gt;
+                &lt;add as="endArrow" value="classic"/&gt;
+            &lt;/add&gt;
+            &lt;add as="verticalConnector"&gt;
+                &lt;add as="elbow" value="vertical"/&gt;
+            &lt;/add&gt;
+            &lt;add as="straightConnector"&gt;
+                &lt;add as="shape" value="connector"/&gt;
+                &lt;add as="endArrow" value="classic"/&gt;
+                &lt;add as="edgeStyle"&gt;null&lt;/add&gt;
+            &lt;/add&gt;
+            &lt;add as="arrowConnector"&gt;
+                &lt;add as="shape" value="arrow"/&gt;
+                &lt;add as="fillColor" value="#C3D9FF"/&gt;
+                &lt;add as="endSize" value="20"/&gt;
+                &lt;remove as="edgeStyle"/&gt;
+            &lt;/add&gt;
+            &lt;add as="swimlane"&gt;
+                &lt;add as="shape" value="swimlane"/&gt;
+                &lt;add as="shadow" value="0"/&gt;
+                &lt;add as="startSize" value="23"/&gt;
+                &lt;add as="align" value="center"/&gt;
+                &lt;add as="verticalAlign" value="top"/&gt;
+                &lt;add as="strokeColor" value="#EEEEEE"/&gt;
+                &lt;add as="fillColor" value="#D4D4D4"/&gt;
+            &lt;/add&gt;
+            &lt;add as="rounded"&gt;
+                &lt;add as="rounded" value="1"/&gt;
+            &lt;/add&gt;
+            &lt;add as="ellipse"&gt;
+                &lt;add as="shape" value="ellipse"/&gt;
+                &lt;add as="perimeter" value="ellipsePerimeter"/&gt;
+                &lt;add as="strokeColor" value="#CDEB8B"/&gt;
+                &lt;add as="fillColor" value="#CDEB8B"/&gt;
+            &lt;/add&gt;
+            &lt;add as="doubleEllipse" extend="ellipse"&gt;
+                &lt;add as="shape" value="doubleEllipse"/&gt;
+            &lt;/add&gt;
+            &lt;add as="rhombus"&gt;
+                &lt;add as="shape" value="rhombus"/&gt;
+                &lt;add as="perimeter" value="rhombusPerimeter"/&gt;
+                &lt;add as="strokeColor" value="#FFCF8A"/&gt;
+                &lt;add as="fillColor" value="#FFCF8A"/&gt;
+            &lt;/add&gt;
+            &lt;add as="triangle" extend="rhombus"&gt;
+                &lt;add as="shape" value="triangle"/&gt;
+                &lt;add as="perimeter" value="trianglePerimeter"/&gt;
+                &lt;add as="align" value="left"/&gt;
+            &lt;/add&gt;
+            &lt;add as="hexagon"&gt;
+                &lt;add as="shape" value="hexagon"/&gt;
+            &lt;/add&gt;
+            &lt;add as="actor"&gt;
+                &lt;add as="shape" value="actor"/&gt;
+                &lt;add as="strokeColor" value="#FFC7C7"/&gt;
+                &lt;add as="fillColor" value="#FFC7C7"/&gt;
+            &lt;/add&gt;
+            &lt;add as="cloud"&gt;
+                &lt;add as="shape" value="cloud"/&gt;
+                &lt;add as="perimeter" value="ellipsePerimeter"/&gt;
+                &lt;add as="strokeColor" value="#CDEB8B"/&gt;
+                &lt;add as="fillColor" value="#CDEB8B"/&gt;
+            &lt;/add&gt;
+            &lt;add as="cylinder"&gt;
+                &lt;add as="shape" value="cylinder"/&gt;
+                &lt;add as="spacingTop" value="10"/&gt;
+                &lt;add as="strokeColor" value="#4096EE"/&gt;
+                &lt;add as="fillColor" value="#4096EE"/&gt;
+            &lt;/add&gt;
+            &lt;add as="hline"&gt;
+                &lt;add as="shape" value="line"/&gt;
+                &lt;add as="strokeWidth" value="3"/&gt;
+                &lt;add as="perimeter" value="rectanglePerimeter"/&gt;
+                &lt;add as="fontColor" value="black"/&gt;
+                &lt;add as="fontSize" value="10"/&gt;
+                &lt;add as="align" value="center"/&gt;
+                &lt;add as="verticalAlign" value="bottom"/&gt;
+                &lt;add as="strokeColor" value="#36393D"/&gt;
+            &lt;/add&gt;
+            &lt;add as="image"&gt;
+                &lt;add as="shape" value="image"/&gt;
+                &lt;add as="perimeter" value="rectanglePerimeter"/&gt;
+                &lt;add as="fontSize" value="10"/&gt;
+                &lt;add as="align" value="center"/&gt;
+                &lt;add as="verticalAlign" value="middle"/&gt;
+                &lt;add as="image" value="images/draw/mxlogo.jpg"/&gt;
+            &lt;/add&gt;
+        &lt;/mxStylesheet&gt;
+        &lt;mxGraphModel as="model"&gt;
+            &lt;add as="valueForCellChanged"&gt;&lt;![CDATA[
+                function(cell, value)
+                {
+                    var previous = null;
+
+                    if (value == null || isNaN(value.nodeType))
+                    {
+                        previous = cell.value.getAttribute('label');
+
+                        if (value == null)
+                        {
+                            cell.value.removeAttribute('label');
+                        }
+                        else
+                        {
+                            cell.setAttribute('label', value);
+                        }
+                    }
+                    else
+                    {
+                        previous = cell.value;
+                        cell.value = value;
+                    }
+
+                    return previous;
+                }
+            ]]&gt;&lt;/add&gt;
+            &lt;root&gt;
+                &lt;Diagram label="My Diagram" href="http://www.mxgraph.com/" id="0"&gt;
+                    &lt;mxCell/&gt;
+                &lt;/Diagram&gt;
+                &lt;Layer label="Default Layer" id="1"&gt;
+                    &lt;mxCell parent="0"/&gt;
+                &lt;/Layer&gt;
+            &lt;/root&gt;
+        &lt;/mxGraphModel&gt;
+    &lt;/mxGraph&gt;
+    &lt;!-- toolbar定义 --&gt;
+    &lt;mxDefaultToolbar as="toolbar"&gt;
+        &lt;add as="connect" mode="connect" icon="images/connect.gif"&gt;&lt;![CDATA[
+            function (editor)
+            {
+                if (editor.defaultEdge != null)
+                {
+                    editor.defaultEdge.style = null;
+                }
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;add as="connect" mode="connect" icon="images/straight.gif"&gt;&lt;![CDATA[
+            function (editor)
+            {
+                if (editor.defaultEdge != null)
+                {
+                    editor.defaultEdge.style = 'straightConnector';
+                }
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;add as="connect" mode="connect" icon="images/arrow.gif"&gt;&lt;![CDATA[
+            function (editor)
+            {
+                if (editor.defaultEdge != null)
+                {
+                    editor.defaultEdge.style = 'arrowConnector';
+                }
+            }
+        ]]&gt;&lt;/add&gt;
+        &lt;br/&gt;&lt;br/&gt;
+        &lt;add as="Text" template="text" icon="images/text.gif"/&gt;
+        &lt;add as="Container" template="container" icon="images/swimlane.gif"/&gt;
+        &lt;add as="Rectangle" template="rectangle" icon="images/rectangle.gif"/&gt;
+        &lt;add as="Rounded" template="rounded" icon="images/rounded.gif"/&gt;
+        &lt;add as="Ellipse" template="shape" style="ellipse" icon="images/ellipse.gif"/&gt;
+        &lt;add as="Double Ellipse" template="shape" style="doubleEllipse" icon="images/doubleellipse.gif"/&gt;
+        &lt;add as="Rhombus" template="shape" style="rhombus" icon="images/rhombus.gif"/&gt;
+        &lt;add as="Triangle" template="actor" style="triangle" icon="images/triangle.gif"/&gt;
+        &lt;add as="Hexagon" template="cloud" style="hexagon" icon="images/hexagon.gif"/&gt;
+        &lt;add as="Actor" template="actor" style="actor" icon="images/actor.gif"/&gt;
+        &lt;add as="Cylinder" template="shape" style="cylinder" icon="images/cylinder.gif"/&gt;
+        &lt;add as="Cloud" template="cloud" style="cloud" icon="images/cloud.gif"/&gt;
+        &lt;add as="Line" template="hline" style="hline" icon="images/hline.gif"/&gt;
+        &lt;add as="Image" template="image" icon="images/image.gif"/&gt;
+    &lt;/mxDefaultToolbar&gt;
+&lt;/mxEditor&gt;
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mxgraph笔记4【shape】]]></title>
+    <link href="http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji4/"/>
+    <updated>2013-03-07T12:54:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji4</id>
+    <content type="html"><![CDATA[<p>在mxgraph中，要实现一个自定义的图形使非常容易的。只需要：
+*   继承mxShape
+*   覆盖redrawPath方法
+*   注册自定义的图形</p>
+
+<!--more-->
+
+
+<p>例子</p>
+
+<pre><code>/**
+ * Class: NoteShape
+ * 
+ * Implementation of the noteShape shape.
+ *
+ * Note Shape, supports size style
+ * 
+ * Constructor: NoteShape
+ *
+ * Constructs a new noteShape shape.
+ */
+function NoteShape() { };
+/**
+ * Extends &lt;mxCylinder&gt;.
+ */
+NoteShape.prototype = new mxCylinder();
+
+NoteShape.prototype.constructor = NoteShape;
+NoteShape.prototype.size = 30;
+
+/**
+ * Function: redrawPath
+ *
+ * Draws the path for this shape. This method uses the &lt;mxPath&gt;
+ * abstraction to paint the shape for VML and SVG.
+ */
+NoteShape.prototype.redrawPath = function(path, x, y, w, h, isForeground)
+{
+    var s = Math.min(w, Math.min(h, mxUtils.getValue(this.style, 'size', this.size) * this.scale));
+
+    if (isForeground)
+    {
+        path.moveTo(w - s, 0);
+        path.lineTo(w - s, s);
+        path.lineTo(w, s);
+        path.end();
+    }
+    else
+    {
+        path.moveTo(0, 0);
+        path.lineTo(w - s, 0);
+        path.lineTo(w, s);
+        path.lineTo(w, h);
+        path.lineTo(0, h);
+        path.lineTo(0, 0);
+        path.close();
+        path.end();
+    }
+};
+// Register the NoteShape with note
+mxCellRenderer.prototype.defaultShapes['note'] = NoteShape;
+</code></pre>
+
+<p>使用，这里直接给出在xml中使用</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mxgraph笔记3【toolbar】]]></title>
+    <link href="http://cocoo.github.com/blog/2013/03/05/mxgraphbi-ji3/"/>
+    <updated>2013-03-05T13:37:00+08:00</updated>
+    <id>http://cocoo.github.com/blog/2013/03/05/mxgraphbi-ji3</id>
+    <content type="html"><![CDATA[<p>用给定的dom元素创建一个toolbar，这个toolbar可能包含icons，buttons和combo boxes</p>
+
+<!--more-->
+
+
+<p>例子</p>
+
+<pre><code>&lt;div id="sidebar"&gt;
+    &lt;ul style="display: block;"&gt;
+        &lt;li class="submenu"&gt;
+            &lt;a href="#"&gt; &lt;i class="icon icon-white icon-inbox"&gt;&lt;/i&gt;
+                &lt;span&gt;基本&lt;/span&gt;
+                &lt;span class="label"&gt;3&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;ul id="toolbar-basic"&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li class="submenu"&gt;
+            &lt;a href="#"&gt; &lt;i class="icon icon-white icon-th-list"&gt;&lt;/i&gt;
+                &lt;span&gt;图形&lt;/span&gt;
+                &lt;span class="label"&gt;3&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;ul id="toolbar-shpae"&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+...
+// Creates the div for the toolbar basic
+var containerBasic = document.getElementById('toolbar-basic');
+
+var toolbarBasic = new mxToolbar(containerBasic);
+toolbarBasic.enabled = false;
+
+new mxDivResizer(containerBasic);
+
+// Creates the div for the toolbar basic
+var containerShape = document.getElementById('toolbar-shape');
+
+var toolbarShape = new mxToolbar(containerShape);
+toolbarShape.enabled = false;
+
+new mxDivResizer(containerShape);
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: System - Cocoo Blog</title>
+  <title>mxgraph笔记3【toolbar】 - Cocoo Blog</title>
   <meta name="author" content="cocoo">
 
   
-  <meta name="description" content="Category: System">
+  <meta name="description" content="用给定的dom元素创建一个toolbar，这个toolbar可能包含icons，buttons和combo boxes 例子 &lt;div id="sidebar"&gt; &lt;ul style="display: block;"&gt; &lt;li class="submenu"&gt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cocoo.github.comblog/categories/system/">
+  <link rel="canonical" href="http://cocoo.github.com/blog/2013/03/05/mxgraphbi-ji3/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,35 +63,129 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: System</h1>
+    
+      <h1 class="entry-title">Mxgraph笔记3【toolbar】</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-05T13:37:00+08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>用给定的dom元素创建一个toolbar，这个toolbar可能包含icons，buttons和combo boxes</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/01/19/linuxxue-xi-zhi-crontab/">linux学习之crontab</a></h1>
-<time datetime="2013-01-19T21:35:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/system/'>System</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a></span>
-</footer>
+<!--more-->
 
 
-</article>
+<p>例子</p>
 
+<pre><code>&lt;div id="sidebar"&gt;
+    &lt;ul style="display: block;"&gt;
+        &lt;li class="submenu"&gt;
+            &lt;a href="#"&gt; &lt;i class="icon icon-white icon-inbox"&gt;&lt;/i&gt;
+                &lt;span&gt;基本&lt;/span&gt;
+                &lt;span class="label"&gt;3&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;ul id="toolbar-basic"&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li class="submenu"&gt;
+            &lt;a href="#"&gt; &lt;i class="icon icon-white icon-th-list"&gt;&lt;/i&gt;
+                &lt;span&gt;图形&lt;/span&gt;
+                &lt;span class="label"&gt;3&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;ul id="toolbar-shpae"&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+...
+// Creates the div for the toolbar basic
+var containerBasic = document.getElementById('toolbar-basic');
+
+var toolbarBasic = new mxToolbar(containerBasic);
+toolbarBasic.enabled = false;
+
+new mxDivResizer(containerBasic);
+
+// Creates the div for the toolbar basic
+var containerShape = document.getElementById('toolbar-shape');
+
+var toolbarShape = new mxToolbar(containerShape);
+toolbarShape.enabled = false;
+
+new mxDivResizer(containerShape);
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">发布者<span class="fn">cocoo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-05T13:37:00+08:00" pubdate data-updated="true">Mar 5<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/js/'>js</a>, <a class='category' href='/blog/categories/mxgraph/'>mxgraph</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cocoo.github.com/blog/2013/03/05/mxgraphbi-ji3/" data-via="" data-counturl="http://cocoo.github.com/blog/2013/03/05/mxgraphbi-ji3/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/04/mxgraphbi-ji1/" title="Previous Post: mxgraph笔记1【简介】">&laquo; mxgraph笔记1【简介】</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/03/07/mxgraphbi-ji4/" title="Next Post: mxgraph笔记4【shape】">mxgraph笔记4【shape】 &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 </div>

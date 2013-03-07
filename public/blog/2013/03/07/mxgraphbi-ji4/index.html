@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: System - Cocoo Blog</title>
+  <title>mxgraph笔记4【shape】 - Cocoo Blog</title>
   <meta name="author" content="cocoo">
 
   
-  <meta name="description" content="Category: System">
+  <meta name="description" content="在mxgraph中，要实现一个自定义的图形使非常容易的。只需要：
+* 继承mxShape
+* 覆盖redrawPath方法
+* 注册自定义的图形 例子 /** * Class: NoteShape * * Implementation of the noteShape shape. * * &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cocoo.github.comblog/categories/system/">
+  <link rel="canonical" href="http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji4/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,35 +66,149 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: System</h1>
+    
+      <h1 class="entry-title">Mxgraph笔记4【shape】</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-07T12:54:00+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>在mxgraph中，要实现一个自定义的图形使非常容易的。只需要：
+*   继承mxShape
+*   覆盖redrawPath方法
+*   注册自定义的图形</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/01/19/linuxxue-xi-zhi-crontab/">linux学习之crontab</a></h1>
-<time datetime="2013-01-19T21:35:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/system/'>System</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a></span>
-</footer>
+<!--more-->
 
 
-</article>
+<p>例子</p>
 
+<pre><code>/**
+ * Class: NoteShape
+ * 
+ * Implementation of the noteShape shape.
+ *
+ * Note Shape, supports size style
+ * 
+ * Constructor: NoteShape
+ *
+ * Constructs a new noteShape shape.
+ */
+function NoteShape() { };
+/**
+ * Extends &lt;mxCylinder&gt;.
+ */
+NoteShape.prototype = new mxCylinder();
+
+NoteShape.prototype.constructor = NoteShape;
+NoteShape.prototype.size = 30;
+
+/**
+ * Function: redrawPath
+ *
+ * Draws the path for this shape. This method uses the &lt;mxPath&gt;
+ * abstraction to paint the shape for VML and SVG.
+ */
+NoteShape.prototype.redrawPath = function(path, x, y, w, h, isForeground)
+{
+    var s = Math.min(w, Math.min(h, mxUtils.getValue(this.style, 'size', this.size) * this.scale));
+
+    if (isForeground)
+    {
+        path.moveTo(w - s, 0);
+        path.lineTo(w - s, s);
+        path.lineTo(w, s);
+        path.end();
+    }
+    else
+    {
+        path.moveTo(0, 0);
+        path.lineTo(w - s, 0);
+        path.lineTo(w, s);
+        path.lineTo(w, h);
+        path.lineTo(0, h);
+        path.lineTo(0, 0);
+        path.close();
+        path.end();
+    }
+};
+// Register the NoteShape with note
+mxCellRenderer.prototype.defaultShapes['note'] = NoteShape;
+</code></pre>
+
+<p>使用，这里直接给出在xml中使用</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">发布者<span class="fn">cocoo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-07T12:54:00+08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/js/'>js</a>, <a class='category' href='/blog/categories/mxgraph/'>mxgraph</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji4/" data-via="" data-counturl="http://cocoo.github.com/blog/2013/03/07/mxgraphbi-ji4/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/05/mxgraphbi-ji3/" title="Previous Post: mxgraph笔记3【toolbar】">&laquo; mxgraph笔记3【toolbar】</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/03/07/mxgraphbi-ji2/" title="Next Post: mxgraph笔记2【xml配置】">mxgraph笔记2【xml配置】 &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 </div>

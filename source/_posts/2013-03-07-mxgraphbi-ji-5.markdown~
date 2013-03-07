@@ -1,0 +1,24 @@
+---
+layout: post
+title: "mxgraph笔记5【参数说明】"
+date: 2013-03-07 16:10
+comments: true
+categories: [js,mxgraph]
+---
+### mxStylesheet内参数说明
+
+	<mxStylesheet as="stylesheet">
+		<add as="text"> <!-- 指定为text追加样式 -->
+			<add as="shape" value="rectangle"/>
+			<add as="perimeter" value="trianglePerimeter"/>
+			<add as="fontSize" value="12"/>
+			<add as="align" value="left"/>
+			<add as="verticalAlign" value="top"/>
+			<add as="shadow" value="0"/>
+			<add as="strokeColor" value="none"/>
+			<add as="fillColor" value="none"/>
+			<add as="gradientColor" value="none"/>
+		</add>
+	</mxStylesheet>
+
+*	perimeter:连接点类型，可选的由ellipsePerimeter，
